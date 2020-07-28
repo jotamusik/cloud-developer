@@ -1,19 +1,19 @@
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
 export const config = {
-  "dev": {
-    "username": "",
-    "password": "",
-    "database": "",
-    "host": "",
-    "dialect": "postgres",
-    "aws_region": "us-east-2",
-    "aws_profile": "default",
-    "aws_media_bucket": "udagram-ruttner-dev"
+  postgress: {
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
   },
-  "prod": {
-    "username": "",
-    "password": "",
-    "database": "udagram_prod",
-    "host": "",
-    "dialect": "postgres"
+  aws: {
+    serviceEnv: process.env.SERVICE_ENV,
+    mediaBucket: process.env.AWS_MEDIA_BUCKET,
+  },
+  jwt: {
+    secret: process.env.JWT_SECRET
   }
-}
+};

@@ -8,12 +8,14 @@ const router: Router = Router();
 router.use('/auth', AuthRouter);
 
 router.get('/', async (req: Request, res: Response) => {
+  const users = User.findAll();
+  res.send(users);
 });
 
 router.get('/:id', async (req: Request, res: Response) => {
-    let { id } = req.params;
-    const item = await User.findByPk(id);
-    res.send(item);
+  const { id } = req.params;
+  const item = await User.findByPk(id);
+  res.send(item);
 });
 
 export const UserRouter: Router = router;
